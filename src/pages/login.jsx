@@ -1,70 +1,51 @@
-import { Form, Input, Button } from "antd";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 const Login = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
+  const schema = yup.object().shape({
+    username: yup.string().required("Campo obrigatório"),
+    password: yup.string().required("Campo obrigatório"),
+  });
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+  const handleForm = (data) => {
+    console.log(data);
   };
   return (
-    <Form
-      {...layout}
-      name="basic"
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item
-        label="Usuário"
-        name="username"
-        rules={[
-          {
-            required: true,
-            message: "Porfavor preencha o seu usuário!",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+    <form onSubmit={handleSubmit(handleForm)}>
+      <div>
+        <TextField
+          margin="normal"
+          label="Usuário"
+          name="username"
+          variant="outlined"
+          inputRef={register}
+          error={!!errors.name}
+          helperText={errors.name?.message}
+        />
+      </div>
+      <div>
+        <TextField
+          margin="normal"
+          label="Senha"
+          name="password"
+          variant="outlined"
+          inputRef={register}
+          error={!!errors.password}
+          helperText={errors.password?.message}
+        />
+      </div>
 
-      <Form.Item
-        label="Senha"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: "Porfavor preencha a sua senha!",
-          },
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          Logar
-        </Button>
-      </Form.Item>
-    </Form>
+      <Button type="submit" variant="contained" color="primary">
+        Enviar
+      </Button>
+    </form>
   );
 };
 
