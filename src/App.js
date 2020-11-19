@@ -1,11 +1,11 @@
 import "./App.css";
 
-import Login from "./pages/login";
+import Authenticator from "./components/authenticator";
 
 const App = () => {
   return (
     <div className="App">
-      <Login />
+      <Authenticator />
     </div>
   );
 };
