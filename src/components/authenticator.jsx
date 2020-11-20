@@ -4,7 +4,6 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Login from "../pages/login";
-import Restricted from "../pages/restricted";
 import Users from "../pages/users";
 import FeedbackForm from "../pages/feedback-form";
 import UsersFeedbacks from "../pages/user-feedbacks";
@@ -28,7 +27,7 @@ const Authenticator = () => {
       })
       .then(() => {
         setAuthentication(true);
-        history.push("/restricted");
+        history.push("/users");
       })
       .catch(() => {
         setAuthentication(false);
@@ -45,7 +44,7 @@ const Authenticator = () => {
         <Route exact path="/">
           <Login setAuthentication={setAuthentication} />
         </Route>
-        <Route path="/user-form">
+        <Route exact path="/user-form">
           <UserForm />
         </Route>
       </Switch>
@@ -56,17 +55,18 @@ const Authenticator = () => {
       <Route exact path="/">
         <Login setAuthentication={setAuthentication} />
       </Route>
-      <Route path="/restricted">
-        <Restricted />
-      </Route>
-      <Route path="/users">
+
+      <Route exact path="/users">
         <Users />
       </Route>
-      <Route path="/feedback-form">
+      <Route exact path="/feedback-form">
         <FeedbackForm />
       </Route>
-      <Route path="/user-feedbacks">
+      <Route exact path="/user-feedbacks">
         <UsersFeedbacks />
+      </Route>
+      <Route exact path="/user-form">
+        <UserForm />
       </Route>
     </Switch>
   );

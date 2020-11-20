@@ -25,7 +25,7 @@ const Login = (props) => {
       .then((res) => {
         window.localStorage.setItem("authToken", res.data.auth_token);
         props.setAuthentication(true);
-        history.push("/restricted");
+        history.push("/users");
       });
   };
   return (
