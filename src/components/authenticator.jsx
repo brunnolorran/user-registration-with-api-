@@ -59,10 +59,10 @@ const Authenticator = () => {
       <Route exact path="/users">
         <Users />
       </Route>
-      <Route exact path="/feedback-form">
+      <Route exact path="/feedback-form/:id">
         <FeedbackForm />
       </Route>
-      <Route exact path="/user-feedbacks">
+      <Route exact path="/user-feedbacks/:id">
         <UsersFeedbacks />
       </Route>
       <Route exact path="/user-form">

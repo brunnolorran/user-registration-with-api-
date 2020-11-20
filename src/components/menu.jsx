@@ -45,20 +45,6 @@ const MainMenu = () => {
         >
           Usuários
         </MenuItem>
-        <MenuItem
-          onClick={() => {
-            history.push("/user-feedbacks");
-          }}
-        >
-          Usuário Feedbacks
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            history.push("/feedback-form");
-          }}
-        >
-          Formulário de Feedbacks
-        </MenuItem>
         <MenuItem onClick={tryLogout}>Logout</MenuItem>
       </Menu>
     </>

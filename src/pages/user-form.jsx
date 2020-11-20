@@ -48,7 +48,7 @@ const UserForm = () => {
 
   const handleForm = (data) => {
     axios
-      .post("https://ka-users-api.herokuapp.com/users", { user: data })
+      .post(`https://ka-users-api.herokuapp.com/users`, { user: data })
       .then((res) => {
         if (res.status === 201) {
           history.push("/");
