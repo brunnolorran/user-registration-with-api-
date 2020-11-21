@@ -1,4 +1,3 @@
-import MainMenu from "../components/menu";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -8,13 +7,15 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+import Header from "../components/header";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 100,
   },
 });
 
@@ -34,31 +35,32 @@ const Users = () => {
   }, [setUserList]);
 
   const classes = useStyles();
+
   return (
     <>
-      <MainMenu />
-      <h1>Users</h1>
+      <Header />
+      <h1>Usuário</h1>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Nome</TableCell>
-              <TableCell align="right">ID</TableCell>
-              <TableCell align="right">Usuário</TableCell>
-              <TableCell align="right">E-mail</TableCell>
-              <TableCell align="right">Feedbacks</TableCell>
+              <TableCell align="left">ID</TableCell>
+              <TableCell align="left">Usuário</TableCell>
+              <TableCell align="left">E-mail</TableCell>
+              <TableCell align="left">Feedbacks</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {userList.map((row) => (
               <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" align="left">
                   {row.name}
                 </TableCell>
-                <TableCell align="right">{row.id}</TableCell>
-                <TableCell align="right">{row.user}</TableCell>
-                <TableCell align="right">{row.email}</TableCell>
-                <TableCell align="right">
+                <TableCell align="left">{row.id}</TableCell>
+                <TableCell align="left">{row.user}</TableCell>
+                <TableCell align="left">{row.email}</TableCell>
+                <TableCell align="left">
                   <button
                     onClick={() => history.push(`/user-feedbacks/${row.id}`)}
                   >

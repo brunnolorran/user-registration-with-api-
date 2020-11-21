@@ -1,7 +1,7 @@
-import MainMenu from "../components/menu";
-
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+
+import Header from "../components/header";
 
 import axios from "axios";
 
@@ -44,7 +44,7 @@ const FeedbackForm = () => {
   };
   return (
     <>
-      <MainMenu />
+      <header />
       <h1>Faça um Feedback</h1>
       <form onSubmit={handleSubmit(tryFeedback)}>
         <div>

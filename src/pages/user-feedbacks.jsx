@@ -1,5 +1,3 @@
-import MainMenu from "../components/menu";
-
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -9,6 +7,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+
+import Header from "../components/header";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -21,6 +21,7 @@ const useStyles = makeStyles({
 });
 
 const UsersFeedbacks = () => {
+  const params = useParams();
   const [userList, setUserList] = useState([]);
   const history = useHistory();
   useEffect(() => {
@@ -32,14 +33,19 @@ const UsersFeedbacks = () => {
       .then((res) => {
         setUserList(res.data);
       });
-  }, [setUserList]);
+  }, [params, setUserList]);
 
   const classes = useStyles();
-  const params = useParams();
+
   return (
     <>
-      <MainMenu />
-      <h1>UsersFeedbacks</h1>
+      <Header />
+      <div>
+        <h1>Feedbacks do Usuário</h1>{" "}
+        <Button onClick={() => history.push(`/feedback-form/${params.id}`)}>
+          Criar um Feedback
+        </Button>
+      </div>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
@@ -62,9 +68,6 @@ const UsersFeedbacks = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Button onClick={() => history.push(`/feedback-form/${params.id}`)}>
-        Criar um Feedback
-      </Button>
     </>
   );
 };
