@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 
+import { AlignContainer } from "../pages/styles-pages";
+
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Login from "../pages/login";
@@ -37,7 +39,11 @@ const Authenticator = () => {
   }, [history, setAuthentication]);
 
   if (isAuthenticated === undefined) {
-    return <CircularProgress />;
+    return (
+      <AlignContainer>
+        <CircularProgress />
+      </AlignContainer>
+    );
   }
 
   if (isAuthenticated === false) {
