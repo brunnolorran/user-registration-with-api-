@@ -40,7 +40,7 @@ const UsersFeedbacks = () => {
   return (
     <>
       <ContainerTitleButtom>
-        <TitleStyle>Feedbacks do Usuário</TitleStyle>{" "}
+        <TitleStyle>FEEDBACKS DO USUÁRIO</TitleStyle>{" "}
         <Button onClick={() => history.push(`/feedback-form/${params.id}`)}>
           Criar um Feedback
         </Button>

@@ -42,7 +42,7 @@ const Users = () => {
 
   return (
     <>
-      <TitleStyle>Usuário</TitleStyle>
+      <TitleStyle>USUÁRIOS</TitleStyle>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="a table">
           <TableHead>

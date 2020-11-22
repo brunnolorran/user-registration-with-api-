@@ -1,8 +1,8 @@
 import {
   ButtonStyledPrimary,
+  ButtonStyledSecondary,
   TextFieldStyled,
   ContainerFormStyled,
-  TitleStyle,
   AlignContainer,
 } from "./styles-pages";
 
@@ -48,7 +48,7 @@ const FeedbackForm = () => {
   return (
     <AlignContainer>
       <ContainerFormStyled>
-        <TitleStyle>Faça um Feedback</TitleStyle>
+        <h2>NOVO FEEDBACK</h2>
         <form onSubmit={handleSubmit(tryFeedback)}>
           <div>
             <TextFieldStyled
@@ -92,6 +92,9 @@ const FeedbackForm = () => {
             Enviar
           </ButtonStyledPrimary>
         </form>
+        <ButtonStyledSecondary onClick={() => history.push(`/users`)}>
+          Cancelar
+        </ButtonStyledSecondary>
       </ContainerFormStyled>
     </AlignContainer>
   );

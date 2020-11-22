@@ -1,10 +1,11 @@
 import {
   ButtonStyledPrimary,
-  ButtonStyledSecondary,
   TextFieldStyled,
   ContainerFormStyled,
   AlignContainer,
 } from "./styles-pages";
+
+import { MdArrowBack } from "react-icons/md";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -64,8 +65,18 @@ const UserForm = () => {
 
   return (
     <AlignContainer>
+      <MdArrowBack
+        onClick={() => history.push("/")}
+        style={{
+          fontSize: 30,
+          color: "#4136f1",
+          marginBottom: 15,
+          marginRight: "30%",
+          cursor: "pointer",
+        }}
+      />
       <ContainerFormStyled>
-        <h1>Cadastro de usuário</h1>
+        <h2>CRIE SUA CONTA</h2>
         <form onSubmit={handleSubmit(handleForm)}>
           <div>
             <TextFieldStyled
