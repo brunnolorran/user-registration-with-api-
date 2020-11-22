@@ -1,3 +1,7 @@
+import { FeedbackStyled } from "./styles";
+
+import { TitleStyle } from "../styles-pages";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -7,21 +11,21 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-import Header from "../components/header";
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 100,
+    tableLayout: "fixed",
+    maxWidth: 1020,
   },
 });
 
 const Users = () => {
   const [userList, setUserList] = useState([]);
   const history = useHistory();
+
   useEffect(() => {
     const token = window.localStorage.getItem("authToken");
 
@@ -38,17 +42,16 @@ const Users = () => {
 
   return (
     <>
-      <Header />
-      <h1>Usuário</h1>
+      <TitleStyle>Usuário</TitleStyle>
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
+        <Table className={classes.table} aria-label="a table">
           <TableHead>
             <TableRow>
               <TableCell>Nome</TableCell>
               <TableCell align="left">ID</TableCell>
               <TableCell align="left">Usuário</TableCell>
               <TableCell align="left">E-mail</TableCell>
-              <TableCell align="left">Feedbacks</TableCell>
+              <TableCell align="right">Feedbacks</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -60,12 +63,12 @@ const Users = () => {
                 <TableCell align="left">{row.id}</TableCell>
                 <TableCell align="left">{row.user}</TableCell>
                 <TableCell align="left">{row.email}</TableCell>
-                <TableCell align="left">
-                  <button
+                <TableCell align="right">
+                  <FeedbackStyled
                     onClick={() => history.push(`/user-feedbacks/${row.id}`)}
                   >
                     Todos os feedback
-                  </button>
+                  </FeedbackStyled>
                 </TableCell>
               </TableRow>
             ))}

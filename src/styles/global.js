@@ -6,10 +6,12 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         outline: none;
+       
     }
 
     body, input, button{
         font: 14px Roboto, sans-serif;
+        background-color: #EAF2FF;
     }
 
     button{ 
@@ -19,6 +21,9 @@ export default createGlobalStyle`
     #main-container{
         max-width: 1020px;
         margin: 0 auto;
-        padding: 0 20px 50px
+        padding: 0 20px 50px;
+       
+
+
     }
 `;

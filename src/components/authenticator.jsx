@@ -4,10 +4,12 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Login from "../pages/login";
-import Users from "../pages/users";
+import Users from "../pages/users/";
 import FeedbackForm from "../pages/feedback-form";
 import UsersFeedbacks from "../pages/user-feedbacks";
 import UserForm from "../pages/user-form";
+
+import Header from "./header";
 
 import axios from "axios";
 
@@ -51,24 +53,28 @@ const Authenticator = () => {
     );
   }
   return (
-    <Switch>
-      <Route exact path="/">
-        <Login setAuthentication={setAuthentication} />
-      </Route>
+    <>
+      {isAuthenticated && <Header setAuthentication={setAuthentication} />}
 
-      <Route exact path="/users">
-        <Users />
-      </Route>
-      <Route exact path="/feedback-form/:id">
-        <FeedbackForm />
-      </Route>
-      <Route exact path="/user-feedbacks/:id">
-        <UsersFeedbacks />
-      </Route>
-      <Route exact path="/user-form">
-        <UserForm />
-      </Route>
-    </Switch>
+      <Switch>
+        <Route exact path="/">
+          <Login setAuthentication={setAuthentication} />
+        </Route>
+
+        <Route exact path="/users">
+          <Users />
+        </Route>
+        <Route exact path="/feedback-form/:id">
+          <FeedbackForm />
+        </Route>
+        <Route exact path="/user-feedbacks/:id">
+          <UsersFeedbacks />
+        </Route>
+        <Route exact path="/user-form">
+          <UserForm />
+        </Route>
+      </Switch>
+    </>
   );
 };
 

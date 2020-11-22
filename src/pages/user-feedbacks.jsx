@@ -1,3 +1,5 @@
+import { TitleStyle, ContainerTitleButtom } from "./styles-pages";
+
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -7,8 +9,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-
-import Header from "../components/header";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -39,13 +39,12 @@ const UsersFeedbacks = () => {
 
   return (
     <>
-      <Header />
-      <div>
-        <h1>Feedbacks do Usuário</h1>{" "}
+      <ContainerTitleButtom>
+        <TitleStyle>Feedbacks do Usuário</TitleStyle>{" "}
         <Button onClick={() => history.push(`/feedback-form/${params.id}`)}>
           Criar um Feedback
         </Button>
-      </div>
+      </ContainerTitleButtom>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>

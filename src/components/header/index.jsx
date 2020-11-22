@@ -2,12 +2,13 @@ import { MenuBar, ButtonStyled } from "./styles";
 
 import { useHistory } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
   const history = useHistory();
 
   const tryLogout = () => {
     window.localStorage.removeItem("authToken");
     history.push("/");
+    props.setAuthentication(false);
   };
 
   return (

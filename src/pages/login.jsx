@@ -1,5 +1,10 @@
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import {
+  ButtonStyledPrimary,
+  ButtonStyledSecondary,
+  TextFieldStyled,
+  ContainerFormStyled,
+  AlignContainer,
+} from "./styles-pages";
 
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -29,46 +34,51 @@ const Login = (props) => {
       });
   };
   return (
-    <>
-      <form onSubmit={handleSubmit(tryLogin)}>
-        <div>
-          <TextField
-            margin="normal"
-            label="Usuário"
-            name="user"
-            variant="outlined"
-            inputRef={register}
-            error={!!errors.user}
-            helperText={errors.user?.message}
-          />
-        </div>
-        <div>
-          <TextField
-            margin="normal"
-            label="Senha"
-            name="password"
-            variant="outlined"
-            inputRef={register}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-          />
-        </div>
+    <AlignContainer>
+      <ContainerFormStyled>
+        <h2>LOGIN</h2>
+        <form onSubmit={handleSubmit(tryLogin)}>
+          <div>
+            <TextFieldStyled
+              margin="normal"
+              label="Usuário"
+              name="user"
+              inputRef={register}
+              error={!!errors.user}
+              helperText={errors.user?.message}
+            />
+          </div>
+          <div>
+            <TextFieldStyled
+              margin="normal"
+              label="Senha"
+              name="password"
+              inputRef={register}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
+          </div>
 
-        <Button type="submit" variant="contained" color="primary">
-          Enviar
-        </Button>
-      </form>
-      <Button
-        type="submit"
-        size="small"
-        variant="outlined"
-        onClick={() => {
-          history.push("/user-form");
-        }}
-      >
-        Criar usuário
-      </Button>
-    </>
+          <ButtonStyledPrimary
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
+            Enviar
+          </ButtonStyledPrimary>
+        </form>
+        <ButtonStyledSecondary
+          type="submit"
+          size="small"
+          variant="outlined"
+          onClick={() => {
+            history.push("/user-form");
+          }}
+        >
+          Criar usuário
+        </ButtonStyledSecondary>
+      </ContainerFormStyled>
+    </AlignContainer>
   );
 };
 

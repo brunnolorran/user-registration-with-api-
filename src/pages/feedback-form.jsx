@@ -1,7 +1,10 @@
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-
-import Header from "../components/header";
+import {
+  ButtonStyledPrimary,
+  TextFieldStyled,
+  ContainerFormStyled,
+  TitleStyle,
+  AlignContainer,
+} from "./styles-pages";
 
 import axios from "axios";
 
@@ -43,49 +46,54 @@ const FeedbackForm = () => {
       });
   };
   return (
-    <>
-      <header />
-      <h1>Faça um Feedback</h1>
-      <form onSubmit={handleSubmit(tryFeedback)}>
-        <div>
-          <TextField
-            margin="normal"
-            label="Nome do feedback"
-            name="name"
-            variant="outlined"
-            inputRef={register}
-            error={!!errors.name}
-            helperText={errors.name?.message}
-          />
-        </div>
-        <div>
-          <TextField
-            margin="normal"
-            label="Comentário"
-            name="comment"
-            variant="outlined"
-            inputRef={register}
-            error={!!errors.comment}
-            helperText={errors.comment?.message}
-          />
-        </div>
-        <div>
-          <TextField
-            margin="normal"
-            label="Nota"
-            name="grade"
-            variant="outlined"
-            inputRef={register}
-            error={!!errors.grade}
-            helperText={errors.grade?.message}
-          />
-        </div>
+    <AlignContainer>
+      <ContainerFormStyled>
+        <TitleStyle>Faça um Feedback</TitleStyle>
+        <form onSubmit={handleSubmit(tryFeedback)}>
+          <div>
+            <TextFieldStyled
+              margin="normal"
+              label="Nome do feedback"
+              name="name"
+              variant="outlined"
+              inputRef={register}
+              error={!!errors.name}
+              helperText={errors.name?.message}
+            />
+          </div>
+          <div>
+            <TextFieldStyled
+              margin="normal"
+              label="Comentário"
+              name="comment"
+              variant="outlined"
+              inputRef={register}
+              error={!!errors.comment}
+              helperText={errors.comment?.message}
+            />
+          </div>
+          <div>
+            <TextFieldStyled
+              margin="normal"
+              label="Nota"
+              name="grade"
+              variant="outlined"
+              inputRef={register}
+              error={!!errors.grade}
+              helperText={errors.grade?.message}
+            />
+          </div>
 
-        <Button type="submit" variant="contained" color="primary">
-          Enviar
-        </Button>
-      </form>
-    </>
+          <ButtonStyledPrimary
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
+            Enviar
+          </ButtonStyledPrimary>
+        </form>
+      </ContainerFormStyled>
+    </AlignContainer>
   );
 };
 
