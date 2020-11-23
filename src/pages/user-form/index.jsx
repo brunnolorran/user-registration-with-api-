@@ -3,7 +3,7 @@ import {
   TextFieldStyled,
   ContainerFormStyled,
   AlignContainer,
-} from "./styles-pages";
+} from "../styles-pages";
 
 import { MdArrowBack } from "react-icons/md";
 

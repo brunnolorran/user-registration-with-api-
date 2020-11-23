@@ -1,4 +1,4 @@
-import { TitleStyle, ContainerTitleButtom } from "./styles-pages";
+import { TitleStyle, ContainerTitleButtom } from "../styles-pages";
 
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";

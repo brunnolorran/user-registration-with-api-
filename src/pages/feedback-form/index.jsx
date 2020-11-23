@@ -4,7 +4,7 @@ import {
   TextFieldStyled,
   ContainerFormStyled,
   AlignContainer,
-} from "./styles-pages";
+} from "../styles-pages";
 
 import axios from "axios";
 
