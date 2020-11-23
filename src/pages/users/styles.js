@@ -17,7 +17,5 @@ export const TableStyled = styled(Table)`
 `;
 
 export const TableCellStyled = styled(TableCell)`
-  @media (max-width: 1030px) {
-    word-wrap: break-word !important;
-  }
+  word-wrap: break-word;
 `;

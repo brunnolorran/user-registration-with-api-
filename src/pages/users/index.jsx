@@ -3,8 +3,9 @@ import { FeedbackStyled, TableStyled, TableCellStyled } from "./styles";
 import { TitleStyle } from "../styles-pages";
 
 import TableBody from "@material-ui/core/TableBody";
-import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
+import TableContainer from "@material-ui/core/TableContainer";
+
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
@@ -31,15 +32,23 @@ const Users = () => {
   return (
     <>
       <TitleStyle>USUÁRIOS</TitleStyle>
-      <TableContainer style={{ overflowX: "hidden" }} component={Paper}>
+      <TableContainer component={Paper}>
         <TableStyled>
           <TableHead>
             <TableRow>
-              <TableCellStyled>Nome</TableCellStyled>
-              <TableCellStyled align="left">ID</TableCellStyled>
-              <TableCellStyled align="left">Usuário</TableCellStyled>
-              <TableCellStyled align="left">E-mail</TableCellStyled>
-              <TableCellStyled align="center">Feedbacks</TableCellStyled>
+              <TableCellStyled width={150}>Nome</TableCellStyled>
+              <TableCellStyled width={50} align="left">
+                ID
+              </TableCellStyled>
+              <TableCellStyled width={100} align="left">
+                Usuário
+              </TableCellStyled>
+              <TableCellStyled width={150} align="left">
+                E-mail
+              </TableCellStyled>
+              <TableCellStyled width={100} align="right">
+                Feedbacks
+              </TableCellStyled>
             </TableRow>
           </TableHead>
           <TableBody>
